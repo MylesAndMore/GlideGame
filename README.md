@@ -1,2 +1,3 @@
 # Glide
-A Minecraft: Java Edition plugin recreating the Glide minigame from Minecraft Legacy Console Edition.
+
+You're a little early...stick around to (hopefully) see some progress!
