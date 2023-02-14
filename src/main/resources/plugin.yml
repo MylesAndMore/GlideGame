@@ -1,0 +1,12 @@
+main: com.MylesAndMore.GlideGame.Main
+name: GlideGame
+version: 0.0.1
+description: 'A Minecraft: Java Edition plugin recreating the Glide minigame from Minecraft Legacy Console Edition.'
+api-version: 1.19
+load: STARTUP
+author: MylesAndMore
+website: https://github.com/MylesAndMore/GlideGame
+depend:
+  - Multiverse-Core
+commands:
+  
