@@ -1,3 +1,6 @@
+### GitHub codespaces ###
+.devcontainer/
+
 ### Gradle ###
 .gradle
 build/
