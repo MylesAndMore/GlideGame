@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 public class EventListener implements Listener {
     @EventHandler
     public void PlayerMoveEvent(PlayerMoveEvent event) {
-        if (Game.game().getState() == "running") {
+        if (Game.game().state() == "running") {
             if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR) {
                 event.getPlayer().setHealth(0);
             } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.UP).getType() != Material.AIR) {

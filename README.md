@@ -19,7 +19,7 @@ Alpha branch: here is what I want to get done for the first stage of testing!
   - [ ] Certain amount of time for others to finish after one player has
 - [ ] Correctly implemented solo mode
 
-- Challenge: try and implement correct object logic for the game so we can have multiple games running at one time? (basically, every time you start a game, save the object in a var so you can modify it later)
+- Challenge: try and implement correct object logic for the game so we can have multiple games running at one time? (basically, every time you start a game, save the object in a var so you can modify it later--associate a Game object with a world)
 
 #
 

@@ -2,6 +2,7 @@ package com.MylesAndMore.GlideGame;
 
 import java.util.List;
 
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -29,14 +30,15 @@ public class Game {
      * @return The game's current state as a String ("waiting", "starting", "running", "complete")
      * Can also be null if not initialized.
      */
-    public String getState() { return state; }
+    public String state() { return state; }
 
     /**
      * Creates a new GlideGame.
      * @param players The players to create the game with
+     * @param world The world to create the game in
      * @return true if the game succeeds creation, and false if not
      */
-    public boolean start(List<Player> players) {
+    public boolean start(List<Player> players, World world) {
         state = "starting";
 
         // freeze movement
