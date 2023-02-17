@@ -29,7 +29,7 @@ public class Game {
      * @return The game's current state as a String ("waiting", "starting", "running", "complete")
      * Can also be null if not initialized.
      */
-    public String gettate() { return state; }
+    public String getState() { return state; }
 
     /**
      * Creates a new GlideGame.

@@ -12,18 +12,20 @@ import org.bukkit.event.player.PlayerMoveEvent;
 public class EventListener implements Listener {
     @EventHandler
     public void PlayerMoveEvent(PlayerMoveEvent event) {
-        if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR) {
-            event.getPlayer().setHealth(0);
-        } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.UP).getType() != Material.AIR) {
-            event.getPlayer().setHealth(0);
-        } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.EAST).getType() != Material.AIR) {
-            event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
-        } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.WEST).getType() != Material.AIR) {
-            event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
-        } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.NORTH).getType() != Material.AIR) {
-            event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
-        } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.SOUTH).getType() != Material.AIR) {
-            event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
+        if (Game.game().getState() == "running") {
+            if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR) {
+                event.getPlayer().setHealth(0);
+            } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.UP).getType() != Material.AIR) {
+                event.getPlayer().setHealth(0);
+            } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.EAST).getType() != Material.AIR) {
+                event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
+            } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.WEST).getType() != Material.AIR) {
+                event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
+            } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.NORTH).getType() != Material.AIR) {
+                event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
+            } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.SOUTH).getType() != Material.AIR) {
+                event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
+            }
         }
     }
 
