@@ -9,4 +9,11 @@ website: https://github.com/MylesAndMore/GlideGame
 depend:
   - Multiverse-Core
 commands:
-  
+  start:
+    description: Force starts a GlideGame with an optional world.
+    usage: '§cUsage: /glidegame:start [world]'
+    permission: GlideGame.start
+permissions:
+  GlideGame.start:
+    description: Allows you to start a GlideGame.
+    default: op

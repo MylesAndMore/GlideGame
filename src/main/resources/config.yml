@@ -1,0 +1,30 @@
+# Customize the auto start feature of GlideGame
+# Defaults are false and two players
+# Players can be up to 16
+autoStart:
+  enabled: false
+  players: 2
+
+# Customize the place that the winner is teleported after a game ends
+# Keep in mind that these coordinates cannot be zero! The teleport will fail if any of them are; use something like 0.5 instead.
+# Leave blank for the winner to be teleported to the same place as all players
+# These are optional values--defaults are for the included legacy mini games map
+winnerTeleport: 
+  x: -362.5
+  y: 76.0
+  z: -340.5
+
+# Customize the message that displays when the player does not have permission to execute a command from this plugin
+permissionMessage: You do not have permission to perform this command!
+
+# Hides join/leave messages in public chat
+# Default is false
+hideJoinLeaveMessages: false
+
+# This tells the plugin which worlds it should use as the lobby/game worlds
+# Do NOT change unless you know what you're doing!!
+# Defaults are lobby for lobby (crazy right!), cavern, temple, and canyon
+lobby: lobby
+game0: cavern
+game1: temple
+game2: canyon
