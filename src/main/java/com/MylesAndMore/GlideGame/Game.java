@@ -1,5 +1,6 @@
 package com.MylesAndMore.GlideGame;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.World;
@@ -40,21 +41,21 @@ public class Game {
      */
     public boolean start(List<Player> players, World world) {
         state = "starting";
-
-        // freeze movement
-        // ...
-
         // Teleport players
-        for (Player player : players) {
-            player.teleport(player);
-        }
+        // List<Location> spawnLocations = new ArrayList<>(List.of(
+        //     // TODO: make actual locations for each map
+        //     new Location(Constants.game0(), 0, 0, 0)
+        // ));
+        // for (Player player : players) {
+        //     player.teleport();
+        // }
 
-        // Game countdown
+        // TODO: Game countdown
         // ...
-        // Save timestamp of game starting
+        // TODO: Save timestamp of game starting
         // ...
 
-        // todo: make a sort of parallel list (I think hashmap?) that associates each game's player w/ their respective timer Bukkit task,
+        // TODO: make a sort of parallel list (I think hashmap?) that associates each game's player w/ their respective timer Bukkit task,
         // and save it in the game object to cancel later when they finish
         for (Player player : players) {
             BukkitTask pTimer = new BukkitRunnable() {
@@ -77,5 +78,9 @@ public class Game {
         }
         state = "running";
         return true;
+    }
+
+    private Object Location(World world, int i, int j, int k) {
+        return null;
     }
 }

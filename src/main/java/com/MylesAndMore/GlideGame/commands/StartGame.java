@@ -48,8 +48,10 @@ public class StartGame implements CommandExecutor {
                     return false;
                 }
                 // TODO: Make sure that world does not already have a game running in it
-                if (!Game.game().start(Bukkit.getServer().getWorld(Constants.lobby()).getPlayers(), Objects.requireNonNull(world))) {
-                    sender.sendMessage(ChatColor.RED + "An error occured while creating your game. Please try again later.");
+                if (world != null) {
+                    if (!Game.game().start(Bukkit.getServer().getWorld(Constants.lobby()).getPlayers(), world)) {
+                        sender.sendMessage(ChatColor.RED + "An error occured while creating your game. Please try again later.");
+                    }
                 }
             }
         } else {

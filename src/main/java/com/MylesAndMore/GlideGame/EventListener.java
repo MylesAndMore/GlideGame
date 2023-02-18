@@ -2,6 +2,7 @@ package com.MylesAndMore.GlideGame;
 
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.TurtleEgg;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -26,6 +27,8 @@ public class EventListener implements Listener {
             } else if (event.getPlayer().getLocation().getBlock().getRelative(BlockFace.SOUTH).getType() != Material.AIR) {
                 event.getPlayer().setHealth(event.getPlayer().getHealth() - 1);
             }
+        } else if (Game.game().state() == "starting") {
+            event.setCancelled(true);
         }
     }
 
