@@ -1,7 +1,7 @@
 package com.MylesAndMore.GlideGame.commands;
 
-import com.MylesAndMore.GlideGame.Game;
-import com.MylesAndMore.GlideGame.api.Constants;
+import com.MylesAndMore.GlideGame.game.Game;
+import com.MylesAndMore.GlideGame.plugin.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,14 +14,13 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
-/** Force starts a GlideGame with an optional world. */
+/** Force starts a GlideGame with an optional world */
 public class StartGame implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // Check if sender has perms to run command
+    public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (sender.hasPermission("GlideGame.start")) {
-            // Check if a lobby is defined
             if (Constants.lobby() != null) {
                 // Get a world to start in, either from config or from player
                 World world = null;
@@ -31,7 +30,7 @@ public class StartGame implements CommandExecutor {
                     if (Bukkit.getWorld(Constants.game0()) != null) { worlds.add(Bukkit.getWorld(Constants.game0())); }
                     if (Bukkit.getWorld(Constants.game1()) != null) { worlds.add(Bukkit.getWorld(Constants.game1())); }
                     if (Bukkit.getWorld(Constants.game2()) != null) { worlds.add(Bukkit.getWorld(Constants.game2())); }
-                    if (worlds.size() <= 0) {
+                    if (worlds.size() == 0) {
                         sender.sendMessage(ChatColor.RED + "We couldn't find any valid worlds to load. Check the configuration file?");
                     }
                     else {
@@ -49,8 +48,9 @@ public class StartGame implements CommandExecutor {
                 }
                 // TODO: Make sure that world does not already have a game running in it
                 if (world != null) {
-                    if (!Game.game().start(Bukkit.getServer().getWorld(Constants.lobby()).getPlayers(), world)) {
-                        sender.sendMessage(ChatColor.RED + "An error occured while creating your game. Please try again later.");
+                    // Create a new Game object and start it
+                    if (new Game().start(Objects.requireNonNull(Bukkit.getServer().getWorld(Constants.lobby())).getPlayers(), world) == null) {
+                        sender.sendMessage(ChatColor.RED + "An error occurred while creating your game. Please try again later.");
                     }
                 }
             }

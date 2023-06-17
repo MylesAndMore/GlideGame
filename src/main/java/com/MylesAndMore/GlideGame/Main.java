@@ -1,6 +1,7 @@
 package com.MylesAndMore.GlideGame;
 
-import com.MylesAndMore.GlideGame.api.Metrics;
+import com.MylesAndMore.GlideGame.plugin.EventListener;
+import com.MylesAndMore.GlideGame.plugin.Metrics;
 import com.MylesAndMore.GlideGame.commands.StartGame;
 
 import org.bukkit.Bukkit;
@@ -13,9 +14,14 @@ public class Main extends JavaPlugin{
         getServer().getPluginManager().registerEvents(new EventListener(), this);
         this.getCommand("start").setExecutor(new StartGame());
         new Metrics(this, 17736);
-        // Save the default config file (packaged in the JAR)
-        this.saveDefaultConfig();
-        // Init message
+        this.saveDefaultConfig(); // Save the default config file (packaged in the JAR)
+
+        // TODO: add an update checker for future-proofing
+        // Both of these look like good options?
+        // https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker/tree/master
+        // https://www.spigotmc.org/threads/an-actually-decent-plugin-update-checker.344327/
+        // If it works well possibly add it to Tumble as well along with the music if possible
+
         Bukkit.getServer().getLogger().info("[GlideGame] GlideGame successfully enabled!");
     }
 }

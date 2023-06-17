@@ -1,4 +1,4 @@
-package com.MylesAndMore.GlideGame;
+package com.MylesAndMore.GlideGame.game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,22 +8,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.MylesAndMore.GlideGame.api.Constants;
+import com.MylesAndMore.GlideGame.plugin.Constants;
 
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
-/** Game class containing all methods modifying the GlideGame and its elements.  */
+/** Contains all methods and elements relating to the GlideGame */
 public class Game {
-    private static Game game;
-    /**
-     * @return the Game object.
-     */
-    public static Game game() {
-        if (game == null) {
-            game = new Game();
-        }
-        return game;
+    private static List<Game> runningGames = new ArrayList<>();
+    public static List<Game> getRunningGames() {
+        return runningGames;
     }
 
     private String state;
@@ -31,32 +25,31 @@ public class Game {
      * @return The game's current state as a String ("waiting", "starting", "running", "complete")
      * Can also be null if not initialized.
      */
-    public String state() { return state; }
+    public String getState() {
+        return state;
+    }
 
     /**
      * Creates a new GlideGame.
      * @param players The players to create the game with
-     * @param world The world to create the game in
-     * @return true if the game succeeds creation, and false if not
+     * @param world   The world to create the game in
+     *
+     * @return the new Game object if the game succeeds creation, and null if not
      */
-    public boolean start(List<Player> players, World world) {
+    public Game start(List<Player> players, World world) {
         state = "starting";
-        // Teleport players
-        // List<Location> spawnLocations = new ArrayList<>(List.of(
-        //     // TODO: make actual locations for each map
-        //     new Location(Constants.game0(), 0, 0, 0)
-        // ));
-        // for (Player player : players) {
-        //     player.teleport();
-        // }
+        Game game = this;
+
+        // TODO: Perform necessary game setup and initialization
 
         // TODO: Game countdown
         // ...
+
         // TODO: Save timestamp of game starting
         // ...
 
-        // TODO: make a sort of parallel list (I think hashmap?) that associates each game's player w/ their respective timer Bukkit task,
-        // and save it in the game object to cancel later when they finish
+        // TODO: Make a sort of parallel list (e.g., HashMap) that associates each game's player
+        // with their respective timer Bukkit task and save it in the game object to cancel later when they finish
         for (Player player : players) {
             BukkitTask pTimer = new BukkitRunnable() {
                 int total;
@@ -76,8 +69,10 @@ public class Game {
                 }
             }.runTaskTimer(Constants.plugin(), 0, 2);
         }
+
         state = "running";
-        return true;
+        runningGames.add(game);
+        return this;
     }
 
     private Object Location(World world, int i, int j, int k) {

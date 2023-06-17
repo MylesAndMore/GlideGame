@@ -1,4 +1,4 @@
-// Do NOT remove this file! The build will fail--it is to enable bStats.
+// GlideGame--do not remove or modify this file!
 
 /*
  * This Metrics class was auto-generated and can be copied into your project if you are
@@ -14,7 +14,7 @@
  *
  * Violations will result in a ban of your plugin and account from bStats.
  */
-package com.MylesAndMore.GlideGame.api;
+package com.MylesAndMore.GlideGame.plugin;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
