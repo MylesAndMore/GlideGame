@@ -1,8 +1,9 @@
 package com.MylesAndMore.GlideGame;
 
 import com.MylesAndMore.GlideGame.plugin.EventListener;
-import com.MylesAndMore.GlideGame.plugin.Metrics;
 import com.MylesAndMore.GlideGame.commands.StartGame;
+
+import org.bstats.bukkit.Metrics;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
