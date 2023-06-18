@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id "com.github.johnrengelman.shadow" version "6.1.0"
+    id "com.github.johnrengelman.shadow" version "7.1.0"
 }
 
 java {
@@ -9,25 +9,25 @@ java {
     }
 }
 
-group 'GlideGame'
-version '0.1.0'
-
 repositories {
-    mavenCentral() // Use Maven Central for resolving dependencies.
+    mavenCentral()
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
     maven { url 'https://repo.onarandombox.com/content/groups/public/' }
 }
 
 dependencies {
-    api 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
-    implementation 'com.onarandombox.multiversecore:Multiverse-Core:4.3.1'
-    implementation 'org.bstats:bstats-bukkit:3.0.2'
+    compileOnly('org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT')
+    compileOnly('com.onarandombox.multiversecore:Multiverse-Core:4.3.1')
+    implementation('org.bstats:bstats-bukkit:3.0.2')
 }
 
-jar.finalizedBy shadowJar
+// Disable generation of the normal JAR to reduce confusion and only generate the correctly shadowed JAR including bStats
+jar.enabled = false
+jar.finalizedBy(shadowJar)
 shadowJar {
     archiveBaseName.set('GlideGame')
-    archiveClassifier.set('')
-    archiveVersion.set('')
+    archiveClassifier.set('dev')
+    archiveVersion.set('0.0.1')
+    relocate 'org.bstats', 'com.MylesAndMore.bstats'
 }

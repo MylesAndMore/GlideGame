@@ -32,14 +32,10 @@ public class Game {
     /**
      * Creates a new GlideGame.
      * @param players The players to create the game with
-     * @param world   The world to create the game in
-     *
+     * @param world The world to create the game in
      * @return the new Game object if the game succeeds creation, and null if not
      */
     public Game start(List<Player> players, World world) {
-        state = "starting";
-        Game game = this;
-
         // TODO: Perform necessary game setup and initialization
 
         // TODO: Game countdown
@@ -71,11 +67,7 @@ public class Game {
         }
 
         state = "running";
-        runningGames.add(game);
+        runningGames.add(this);
         return this;
-    }
-
-    private Object Location(World world, int i, int j, int k) {
-        return null;
     }
 }
