@@ -17,11 +17,7 @@ public class Main extends JavaPlugin{
         new Metrics(this, 17736);
         this.saveDefaultConfig(); // Save the default config file (packaged in the JAR)
 
-        // TODO: add an update checker for future-proofing
-        // Both of these look like good options?
-        // https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker/tree/master
-        // https://www.spigotmc.org/threads/an-actually-decent-plugin-update-checker.344327/
-        // If it works well possibly add it to Tumble as well along with the music if possible
+        // TODO: add the update checker (already included in Gradle) once I have a spigot page set up
 
         Bukkit.getServer().getLogger().info("[GlideGame] GlideGame successfully enabled!");
     }
