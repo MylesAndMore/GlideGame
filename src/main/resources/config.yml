@@ -1,12 +1,11 @@
-# Customize the auto start feature of GlideGame; players can be up to 16
+# Customize the autostart function of GlideGame
 autoStart:
-  enabled: false
-  players: 2
+  enabled: true
+  players: 2 # Up to 16 players are supported
 
 # Customize the place that the winner is teleported after a game ends
-# Keep in mind that these coordinates cannot be zero! The teleport will fail if any of them are; use something like 0.5 instead
+# These coordinates cannot be zero! Use 0.5 instead
 # Leave blank for the winner to be teleported to the same place as all other players
-# These default to the values for the lobby map we recommend
 winnerTeleport: 
   x: -362.5
   y: 76.0
@@ -16,11 +15,12 @@ winnerTeleport:
 hideJoinLeaveMessages: false
 
 # Customize the message that displays when the player does not have permission to execute a command from this plugin
-permissionMessage: You do not have permission to perform this command!
+permissionMessage: 'You do not have permission to perform this command!'
 
 
-# The plugin will modify these fields automatically
-lobby: lobby
-game0: cavern
-game1: temple
-game2: canyon
+# Do NOT modify these values!
+
+lobby: 'lobby'
+game0: 'cavern'
+game1: 'temple'
+game2: 'canyon'

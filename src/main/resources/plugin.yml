@@ -1,19 +1,46 @@
-main: com.MylesAndMore.GlideGame.Main
-name: GlideGame
-version: 0.0.1
+main: 'com.MylesAndMore.GlideGame.Main'
+name: 'GlideGame'
+version: '0.0.1'
 description: 'A Minecraft: Java Edition plugin recreating the Glide minigame from Minecraft Legacy Console Edition.'
 api-version: '1.20'
-load: STARTUP
-author: MylesAndMore
-website: https://github.com/MylesAndMore/GlideGame
+load: 'STARTUP'
+author: 'MylesAndMore'
+website: 'https://github.com/MylesAndMore/GlideGame'
 depend:
-  - Multiverse-Core
+  - 'Multiverse-Core'
 commands:
+  reload:
+    description: 'Reloads GlideGame's config.'
+    usage: '§cUsage: /glidegame:reload'
+    permission: 'GlideGame.reload'
   start:
-    description: Force starts a GlideGame with an optional world.
+    description: 'Force starts a GlideGame with an optional world.'
     usage: '§cUsage: /glidegame:start [world]'
-    permission: GlideGame.start
+    permission: 'GlideGame.start'
+  autostart:
+    description: 'Configures the autostart function of GlideGame.'
+    usage: '§cUsage: /glidegame:autostart <playerAmount> [enable|disable]'
+    permission: 'GlideGame.autostart'
+    aliases:
+      - 'auto-start'
+  winlocation:
+    description: 'Sets a location to teleport the winning player of a game.'
+    usage: '§cUsage: /glidegame:winlocation [x] [y] [z]'
+    permission: 'GlideGame.winlocation'
+    aliases:
+      - 'win-location'
+      - 'winloc'
+      - 'win-loc'
 permissions:
+  GlideGame.reload:
+    description: 'Allows reloading GlideGame's config.'
+    default: 'op'
   GlideGame.start:
-    description: Allows you to start a GlideGame.
-    default: op
+    description: 'Allows starting a GlideGame.'
+    default: 'op'
+  tumble.autostart:
+    description: 'Allows configuring the autostart function of GlideGame.'
+    default: 'op'
+  tumble.winlocation:
+    description: 'Allows setting a location to teleport the winning player of a game.'
+    default: 'op'

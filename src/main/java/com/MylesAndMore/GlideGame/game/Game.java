@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.MylesAndMore.GlideGame.plugin.Constants;
+import com.MylesAndMore.GlideGame.plugin.Plugin;
 
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -63,7 +63,7 @@ public class Game {
                     min = total / 600;
                     format = String.format("%02d:%02d:%d", min, s, ms);
                 }
-            }.runTaskTimer(Constants.plugin(), 0, 2);
+            }.runTaskTimer(Plugin.plugin(), 0, 2);
         }
 
         state = "running";
